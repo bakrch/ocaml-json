@@ -42,7 +42,8 @@ let new_dict key value =
         let () = Hashtbl.add h key value in
         h
 
-let new_dict_from_list: (string * json) list -> (string, json) Hashtbl.t = fun ls ->
+let new_dict_from_list: (string * json) list -> (string, json) Hashtbl.t =
+  fun ls ->
         let h = Hashtbl.create 4 in
         let add (key, value) =
                 Hashtbl.add h key value
@@ -405,6 +406,7 @@ and print_object chan o =
         | Seq.Nil -> output_string chan "{}"
         | Seq.Cons (item, next) ->
                 Printf.fprintf chan "{%a%a}" (print_object_item "") item print_object_items next
+
 (** Print string representation to given channall chan *)
 and print chan = function
         | Null -> output_string chan "null"

@@ -22,7 +22,7 @@ let failed_to_parse value expected actual =
         result := 1;
         Printf.eprintf "Failed for \"%s\":\n\texpected json:  %a\n\tactual error: %s\n" value Json.print expected (Json.describe actual)
 
-let success value expected actual =
+let success _value _expected _actual =
         ()
 
 let check b ok err =
